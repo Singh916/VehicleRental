@@ -1,16 +1,17 @@
 package com.example.VehicleRental.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.hibernate.annotations.ManyToAny;
 
 @Entity
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String email;
+    private String phone;
 
     public User() {}
 
@@ -20,9 +21,6 @@ public class User {
         this.email = email;
         this.phone = phone;
     }
-
-    private String email;
-    private String phone;
 
     public Long getId() {
         return id;
